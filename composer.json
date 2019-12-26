@@ -1,0 +1,31 @@
+{
+ "name": "ambab/module-slidingcart",
+ "description": "Sliding cart extension",
+ "type": "magento2-module",
+ "version": "0.0.1",
+ "license": [
+   "OSL-3.0",
+   "AFL-3.0"
+ ],
+ "keywords": [
+   "magento 2",
+   "ambab",
+   "sliding cart"
+ ],
+ "authors": [
+   {
+     "name": "Ambab",
+     "email": "tech.support@ambab.com",
+     "homepage": "https://www.ambab.com",
+     "role": "Technical Support"
+   }
+ ],
+ "autoload": {
+   "files": [
+     "registration.php"
+   ],
+   "psr-4": {
+     "Ambab\\SlidingCart\\": ""
+   }
+ }
+}

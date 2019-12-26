@@ -1,0 +1,107 @@
+<!-- 
+/**
+ * Ambab
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ambab.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Ambab.com/
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ambab
+ * @package     Ambab_SlidingCart
+ * @copyright   Copyright (c) Ambab (https://www.Ambab.com/)
+ * @license     https://www.Ambab.com/
+ */
+ -->
+<div class="block-title">
+    <div id="cart-title" data-bind="scope:'cart-title'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+
+    <if args="getCartParam('summary_count')">
+        <div class="items-total">
+            (<span class="count" if="maxItemsToDisplay < getCartLineItemsCount()" text="maxItemsToDisplay"/>
+            <translate args="'of'" if="maxItemsToDisplay < getCartLineItemsCount()"/>
+            <span class="count" text="getCartLineItemsCount()"/>
+                <!-- ko if: (getCartLineItemsCount() === 1) -->
+                    <span translate="'Item'"/>
+                <!--/ko-->
+                <!-- ko if: (getCartLineItemsCount() > 1) -->
+                    <span translate="'Items'"/>
+                <!--/ko-->)
+        </div>
+
+        <each args="getRegion('extraInfo')" render=""/>
+    </if>
+    <button type="button"
+            id="btn-minicart-close"
+            class="action close"
+            data-action="close"
+            data-bind="attr: { title: $t('Close') }">
+        <span translate="'Close'"/>
+    </button>
+</div>
+
+<div class="block-content">
+    <if args="getCartParam('summary_count')">
+        <strong class="subtitle" translate="'Recently added item(s)'"/>
+        <div data-action="scroll" class="minicart-items-wrapper">
+            <ol id="mini-cart" class="minicart-items" data-bind="foreach: { data: getCartItems(), as: 'item' }">
+                <each args="$parent.getRegion($parent.getItemRenderer(item.product_type))"
+                      render="{name: getTemplate(), data: item, afterRender: function() {$parents[1].initSidebar()}}"
+                />
+            </ol>
+        </div>
+
+        <div class="fixed-totals">
+            <if args="getCartParam('totals_enable')">
+        		<div id="totals" data-bind="scope:'totals'">
+                    <div class="totals-title" data-bind="text:getTotalsTitle()"></div>
+                
+                    <div id="coupon" data-bind="scope:'coupon'">
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                    </div>
+
+        		    <!-- ko template: getTemplate() --><!-- /ko -->
+        		</div>
+            </if>
+
+            <div class="actions" if="getCartParam('possible_onepage_checkout')">
+                <div class="primary btn">
+                    <button
+                            id="top-cart-btn-checkout"
+                            type="button"
+                            class="action primary checkout"
+                            data-action="close"><span>Checkout</span> <span class="grand-totals" data-bind="text:getCartParam('grand_total')"></span></button>
+                    <div data-bind="html: getCartParam('extra_actions')"></div>
+                </div>
+            </div>
+            <div class="secondary">
+                <a class="action viewcart" data-bind="attr: {href: shoppingCartUrl}">
+                    <span translate="'View and Edit Cart'"/>
+                </a>
+            </div>
+        </div>
+    </if>
+
+    <ifnot args="getCartParam('summary_count')">
+        <strong class="subtitle empty"
+                data-bind="visible: closeSidebar()"
+                translate="'You have no items in your shopping cart.'"
+        />
+        <if args="getCartParam('cart_empty_message')">
+            <p class="minicart empty text" text="getCartParam('cart_empty_message')"/>
+        </if>
+    </ifnot>
+
+    <div id="minicart-widgets" class="minicart-widgets" if="getRegion('promotion').length">
+        <each args="getRegion('promotion')" render=""/>
+    </div>
+</div>
+<each args="getRegion('sign-in-popup')" render=""/>

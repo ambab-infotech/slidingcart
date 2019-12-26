@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <slidingcart>
+            <general>
+                <enable>1</enable>
+                <coupon>1</coupon>
+                <totals>1</totals>
+                <addtocart_show_slidingcart>0</addtocart_show_slidingcart>
+                <cart_title>Shopping bag</cart_title>
+                <totals_title>Payment summary</totals_title>
+            </general>
+        </slidingcart>
+    </default>
+</config>

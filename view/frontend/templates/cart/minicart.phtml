@@ -1,0 +1,98 @@
+<?php
+/**
+ * Ambab SlidingCart Extension.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ambab
+ *
+ * @copyright   Copyright (c) 2019 Ambab (https://www.ambab.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+
+/** @var $block \Magento\Checkout\Block\Cart\Sidebar */
+?>
+<div id="custom-sliding-cart">
+    <div data-block="minicart" class="minicart-wrapper">
+        <a class="action showcart" href="<?= /* @noEscape */ $block->getShoppingCartUrl(); ?>"
+           data-bind="scope: 'minicart_content'">
+            <span class="text"><?= /* @noEscape */ __('My Cart'); ?></span>
+            <span class="counter qty empty"
+                  data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+                <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+                <span class="counter-label">
+                <!-- ko if: getCartParam('summary_count') -->
+                    <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                    <!-- ko i18n: 'items' --><!-- /ko -->
+                <!-- /ko -->
+                </span>
+            </span>
+        </a>
+        <?php if ($block->getIsNeedToDisplaySideBar()): ?>
+            <div id="sliding-cart">
+                <div class="block block-minicart"
+                     data-role="dropdownDialog"
+                     data-mage-init='{"dropdownDialog":{
+                        "appendTo":"[data-block=minicart]",
+                        "triggerTarget":".showcart",
+                        "timeout": "2000",
+                        "closeOnMouseLeave": false,
+                        "closeOnEscape": true,
+                        "triggerClass":"active",
+                        "parentClass":"active",
+                        "buttons":[]}}'>
+                    <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                    </div>
+                    <?= $block->getChildHtml('minicart.addons'); ?>
+                </div>
+            </div>
+        <?php else: ?>
+            <script>
+                require(['jquery'], function ($) {
+                    $('a.action.showcart').click(function() {
+                        $(document.body).trigger('processStart');
+                    });
+                });
+            </script>
+        <?php endif; ?>
+        <script>
+            window.checkout = <?= /* @noEscape */ $block->getSerializedConfig(); ?>;
+        </script>
+        <script type="text/x-magento-init">
+        {
+            "[data-block='minicart']": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout(); ?>
+            },
+            "*": {
+                "Magento_Ui/js/block-loader": "<?= /* @noEscape */ $block->getViewFileUrl('images/loader-1.gif'); ?>"
+            }
+        }
+        </script>
+    </div>
+</div>
+
+<script type="text/javascript">
+require(['jquery'], function ($) { // Auto open sliding cart on Add To Cart
+    var dropdownShowHide = '<?php echo $this->helper('Ambab\SlidingCart\Helper\Data')->getGeneralConfig('addtocart_show_slidingcart'); ?>';
+
+    if(dropdownShowHide==1){
+        $('.minicart-wrapper').on('contentLoading', function (event) {
+            $('[data-block="minicart"]').on('contentUpdated', function () {
+                $('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
+                /*setTimeout(function () {
+                    $('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("close");
+                }, 10000);*/
+            });
+        });
+    }
+});
+</script>

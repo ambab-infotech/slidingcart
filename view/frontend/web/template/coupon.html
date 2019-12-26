@@ -1,0 +1,58 @@
+<!--
+/**
+ * Ambab
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ambab.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Ambab.com/
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ambab
+ * @package     Ambab_SlidingCart
+ * @copyright   Copyright (c) Ambab (https://www.Ambab.com/)
+ * @license     https://www.Ambab.com/
+ */
+ -->
+<div data-bind="visible: isVisible()">
+    <form class="cart-discount" id="slidingcart-coupon-form" method="post">
+        <div role="alert" class="message message-error error" data-bind="visible: errorMsg">
+            <div data-bind="text: errorMsg"></div>
+        </div>
+        <div role="alert" class="message message-success success" data-bind="visible: successMsg">
+            <div data-bind="text: successMsg"></div>
+        </div>
+        <div class="fieldset coupon">
+            <div class="field">
+                <label for="slidingcart-coupon-code" class="label"></label>
+                <div class="control">
+                    <input class="input-text"
+                           type="text"
+                           id="slidingcart-coupon-code"
+                           name="coupon_code"
+                           data-bind="value: couponCode, attr: {disabled:isApplied(), placeholder: $t('Enter discount code')} "/>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <!-- ko ifnot: isApplied() -->
+                    <button class="action action-apply" type="button" data-bind="value: $t('Apply'), click: apply">
+                        <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+                    <!-- ko if: isApplied() -->
+                    <input type="hidden" name="remove" id="remove-coupon" value="1"/>
+                    <button class="action action-cancel" type="button" data-bind="value: $t('Cancel'), click: cancel">
+                        <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
