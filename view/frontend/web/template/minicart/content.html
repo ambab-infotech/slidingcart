@@ -71,21 +71,22 @@
         		    <!-- ko template: getTemplate() --><!-- /ko -->
         		</div>
             </if>
-
-            <div class="actions" if="getCartParam('possible_onepage_checkout')">
-                <div class="primary btn">
-                    <button
-                            id="top-cart-btn-checkout"
-                            type="button"
-                            class="action primary checkout"
-                            data-action="close"><span>Checkout</span> <span class="grand-totals" data-bind="text:getCartParam('grand_total')"></span></button>
-                    <div data-bind="html: getCartParam('extra_actions')"></div>
+            <div class="btn-wrapper">
+                <div class="actions" if="getCartParam('possible_onepage_checkout')">
+                    <div class="primary btn">
+                        <button
+                                id="top-cart-btn-checkout"
+                                type="button"
+                                class="action primary checkout"
+                                data-action="close"><span>Checkout</span> <span class="grand-totals" data-bind="text:getCartParam('grand_total')"></span></button>
+                        <div data-bind="html: getCartParam('extra_actions')"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="secondary">
-                <a class="action viewcart" data-bind="attr: {href: shoppingCartUrl}">
-                    <span translate="'View and Edit Cart'"/>
-                </a>
+                <div class="secondary">
+                    <a class="action viewcart" data-bind="attr: {href: shoppingCartUrl}">
+                        <span translate="'View and Edit Cart'"/>
+                    </a>
+                </div>
             </div>
         </div>
     </if>

@@ -66,6 +66,9 @@
             height: 100%;
             .transition();
             #minicart-content-wrapper{
+                display: flex !important;
+                flex-direction: column;
+                height: 100%;
                 .block-title{
                     background: @denim-color;
                     color: @white-color;
@@ -73,6 +76,7 @@
                     display: block !important;
                     margin-bottom: 0;
                     position: relative;
+                    height: 30px;
                     .action{
                         &.close{
                             position: relative;
@@ -109,18 +113,52 @@
                 }
                 .block-content{
                     padding: 1rem 2.6rem 1rem;
-                    @media only screen and (max-width: 767px){
-                        padding: 1rem;
+                    // flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    height: calc(100% - 10px);
+                    // height: 600px;
+                    // @media only screen and (max-width: 767px){
+                    //     padding: 1rem;
+                    // }
+                    // @media only screen and (min-width: 1025px) and (max-width: 1300px){
+                    //     height: 600px;
+                    // }
+                    @-moz-document url-prefix() { 
+                        // position: sticky;
+                        // height: 570px;
                     }
                     .fixed-totals{
-                        position: fixed;
-                        bottom: 0;
-                        top: auto;
-                        padding-right: 26px;
+                        // position: fixed;
+                        // bottom: 0;
+                        // top: auto;
+                        padding-right: 0px;
                         padding-bottom: 10px;
                         background: #fff;
                         @media only screen and (max-width: 767px){
-                            padding-right: 14px;
+                            padding-right: 0px;
+                        }
+                        @media only screen and (max-width: 1024px){
+                            // position: sticky;
+                        }
+                        @media only screen and (min-width: 1025px){
+                            padding-right: 0px;
+                            // position: sticky;
+                        }
+                      
+                        @-moz-document url-prefix() { 
+                            // position: sticky;
+                            // width: 100%;
+                        }
+                        .btn-wrapper{
+                             padding-bottom: 10px;
+                            // position: sticky;
+                            // bottom: 0;
+                            // top: auto;
+                            // width: 100%;
+                            @media only screen and (min-width: 768px){
+                                // width: 400px;
+                            }
                         }
                     }
                     .cart-discount{
@@ -155,15 +193,18 @@
                     }
                     .minicart-items-wrapper{
                         margin: 0px;
-                        height: 235px !important;
+                        // height: 235px !important;
                         display: block;
                         border: none;
                         padding-top: 5px;
                         padding-bottom: 0;
-                        @media only screen and (max-width: 1200px){
+                        flex: 1;
+                        overflow: auto;
+                        padding-left: 0;
+                        @media only screen and (max-width: 1024px){
                             height: 216px !important;
                         }
-                       
+                      
                         .minicart-items{
                               .product-item-details{
                                   position: relative;
@@ -314,3 +355,5 @@
     }
 }
 }
+
+
