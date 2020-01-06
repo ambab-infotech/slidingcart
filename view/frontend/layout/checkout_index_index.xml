@@ -5,6 +5,9 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Ambab_SlidingCart::js/slidingcart.js"/>
+    </head>
     <body>
         <referenceBlock name="minicart" remove="true" />
     </body>
