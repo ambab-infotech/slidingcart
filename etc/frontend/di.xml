@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Checkout\CustomerData\Cart">
-        <plugin name="additional_minicartdata" type="Ambab\SlidingCart\Plugin\Checkout\CustomerData\Cart"/>
+        <plugin name="additional_minicartdata" type="Ambab\SlidingCart\Plugin\Checkout\CustomerData\Cart" disabled="false"/>
     </type>
     <preference for="Magento\Checkout\Block\Cart\Sidebar" type="Ambab\SlidingCart\Block\Cart\Sidebar"/>
 </config>
