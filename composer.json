@@ -2,7 +2,7 @@
  "name": "ambab/module-slidingcart",
  "description": "Sliding cart extension",
  "type": "magento2-module",
- "version": "0.0.1",
+ "version": "1.0.0",
  "license": [
    "OSL-3.0",
    "AFL-3.0"
@@ -10,7 +10,8 @@
  "keywords": [
    "magento 2",
    "ambab",
-   "sliding cart"
+   "sliding cart",
+   "slide minicart"
  ],
  "authors": [
    {

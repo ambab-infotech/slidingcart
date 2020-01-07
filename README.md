@@ -1,6 +1,5 @@
 # Ambab SlidingCart
-A simple extension for magento 2.
-This extension enables the system to replace the minicart into slidingcart which include extra functionality mentioned below.
+A simple extension for magento 2. This extension enables the system to replace the minicart into slidingcart which include extra functionality mentioned below.
 
 # Option to enable/disable Totals, coupon payment summary custom title and cart custom title. 
 
@@ -19,7 +18,4 @@ Go to Admin -> Stores -> Configuration -> Ambab -> SlidingCart to configure Slid
 
 If you do not see Sliding Cart Module, please clear your Magento Cache from your admin panel (System -> Cache Management OR terminal hard refresh on browser also clear browser cache).
 
-Support
-Visit www.ambab.com for support requests.
-
-
+Support visit www.ambab.com for support requests.
