@@ -21,6 +21,9 @@
                             <item name="component" xsi:type="string">Ambab_SlidingCart/js/cart-title</item>
                             <item name="template" xsi:type="string">Ambab_SlidingCart/cart-title</item>
                         </item>
+                        <item name="sliding-cart" xsi:type="array">
+                            <item name="component" xsi:type="string">Ambab_SlidingCart/js/sliding-cart</item>
+                        </item>
                    </item>
                 </argument>
             </arguments>

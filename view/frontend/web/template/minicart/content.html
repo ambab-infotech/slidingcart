@@ -60,17 +60,19 @@
         </div>
 
         <div class="fixed-totals">
-            <if args="getCartParam('totals_enable')">
-        		<div id="totals" data-bind="scope:'totals'">
-                    <div class="totals-title" data-bind="text:getTotalsTitle()"></div>
-                
-                    <div id="coupon" data-bind="scope:'coupon'">
-                        <!-- ko template: getTemplate() --><!-- /ko -->
-                    </div>
+            <div data-bind="scope:'sliding-cart'">
+                <if args="isTotalsEnabled()">
+            		<div id="totals" data-bind="scope:'totals'">
+                        <div class="totals-title" data-bind="text:getTotalsTitle()"></div>
+                    
+                        <div id="coupon" data-bind="scope:'coupon'">
+                            <!-- ko template: getTemplate() --><!-- /ko -->
+                        </div>
 
-        		    <!-- ko template: getTemplate() --><!-- /ko -->
-        		</div>
-            </if>
+            		    <!-- ko template: getTemplate() --><!-- /ko -->
+            		</div>
+                </if>
+            </div>
             <div class="btn-wrapper">
                 <div class="actions" if="getCartParam('possible_onepage_checkout')">
                     <div class="primary btn">

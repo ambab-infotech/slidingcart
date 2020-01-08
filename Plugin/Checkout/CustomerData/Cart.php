@@ -118,18 +118,18 @@ class Cart
                 'value' => $this->priceHelper->currency($value->getValue(), true, false),
             ];
         }
-        $result['totals'] = $_totals;
-        $result['coupon_code'] = ($coupon_code != '' ? $coupon_code : null);
-        $result['coupon_enable'] = boolval($this->helperData->getGeneralConfig('coupon'));
-        $result['totals_enable'] = boolval($this->helperData->getGeneralConfig('totals'));
-        $result['addtocart_show_slidingcart'] = $addtocartShowSc;
-        $result['cart_title'] = $this->helperData->getGeneralConfig('cart_title');
-        $result['totals_title'] = $this->helperData->getGeneralConfig('totals_title');
-        $result['quoteId'] = $quoteIdMask->getMaskedId();
-        $result['isLoggedIn'] = ($isLoggedIn != '' ? true : false);
-        $result['apiUrl'] = $this->urlInterface->getBaseUrl().'rest/default/V1/';
+        $result['slidingcart']['totals'] = $_totals;
+        $result['slidingcart']['coupon_code'] = ($coupon_code != '' ? $coupon_code : null);
+        $result['slidingcart']['coupon_enable'] = boolval($this->helperData->getGeneralConfig('coupon'));
+        $result['slidingcart']['totals_enable'] = boolval($this->helperData->getGeneralConfig('totals'));
+        $result['slidingcart']['addtocart_show_slidingcart'] = $addtocartShowSc;
+        $result['slidingcart']['cart_title'] = $this->helperData->getGeneralConfig('cart_title');
+        $result['slidingcart']['totals_title'] = $this->helperData->getGeneralConfig('totals_title');
+        $result['slidingcart']['quoteId'] = $quoteIdMask->getMaskedId();
+        $result['slidingcart']['isLoggedIn'] = ($isLoggedIn != '' ? true : false);
+        $result['slidingcart']['apiUrl'] = $this->urlInterface->getBaseUrl().'rest/default/V1/';
         $totals = $this->getQuote()->getTotals();
-        $result['grand_total'] = isset($totals['grand_total'])
+        $result['slidingcart']['grand_total'] = isset($totals['grand_total'])
             ? $this->priceHelper->currency($totals['grand_total']->getValue(), true, false)
             : 0;
 

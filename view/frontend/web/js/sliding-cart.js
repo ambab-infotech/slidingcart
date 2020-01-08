@@ -26,18 +26,10 @@ define([
 ], function(ko, Component, customerData, $t) {
     'use strict';
 
-    var cartData = customerData.get('cart')();
-
     return Component.extend({
-        isVisible: ko.observable(cartData.slidingcart.totals_enable),
-
-        getTotals: function () {
+         isTotalsEnabled: function () {
             var cartData = customerData.get('cart')();
-            return cartData.slidingcart.totals;
-        },
-        getTotalsTitle: function () {
-            var cartData = customerData.get('cart')();
-            return cartData.slidingcart.totals_title;
+            return cartData.slidingcart.totals_enable;
         }
     });
 });

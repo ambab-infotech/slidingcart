@@ -33,7 +33,7 @@ define([
     var cartData = customerData.get('cart')();
 
     return Component.extend({
-        isVisible: ko.observable(cartData.coupon_enable),
+        isVisible: ko.observable(cartData.slidingcart.coupon_enable),
         couponCode: ko.observable(),
         isApplied: ko.observable(),
         quoteId: ko.observable(),
@@ -63,11 +63,11 @@ define([
 
         initSlidingCartData: function (cartData) {
             // if (cartData.hasOwnProperty('slidingcart')) {
-                this.couponCode(cartData.coupon_code);
-                this.isApplied(!!cartData.coupon_code);
-                this.isLoggedIn(cartData.isLoggedIn);
-                this.quoteId(cartData.quoteId);
-                this.apiUrl(cartData.apiUrl);
+                this.couponCode(cartData.slidingcart.coupon_code);
+                this.isApplied(!!cartData.slidingcart.coupon_code);
+                this.isLoggedIn(cartData.slidingcart.isLoggedIn);
+                this.quoteId(cartData.slidingcart.quoteId);
+                this.apiUrl(cartData.slidingcart.apiUrl);
             // }
         },
 
