@@ -45,7 +45,7 @@ define([
         getTotalsTitle: function () {
             if(Object.keys(customerData.get('cart')()).length > 0){
                 var cartData = customerData.get('cart')();
-                return cartData.slidingcart.totals_title;
+                return $t(cartData.slidingcart.totals_title);
             }
             return '';
         }

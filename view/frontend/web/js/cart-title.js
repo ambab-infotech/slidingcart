@@ -31,7 +31,7 @@ define([
         getCartTitle: function () {
             if(Object.keys(customerData.get('cart')()).length > 0){
                 var cartData = customerData.get('cart')();
-                return cartData.slidingcart.cart_title;
+                return $t(cartData.slidingcart.cart_title);
             }
             return '';
         }
