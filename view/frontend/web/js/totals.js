@@ -28,8 +28,13 @@ define([
 
     var cartData = customerData.get('cart')();
     return Component.extend({
-        isVisible: ko.observable(Object.keys(customerData.get('cart')()).length ? cartData.slidingcart.totals_enable : 0),
-
+        isVisible: function(){
+            if(Object.keys(customerData.get('cart')()).length > 0){
+                var cartData = customerData.get('cart')();
+                return ko.observable(Boolean(cartData.slidingcart.totals_enable));
+            }
+            return ko.observable(false);
+        },
         getTotals: function () {
             if(Object.keys(customerData.get('cart')()).length > 0){
                 var cartData = customerData.get('cart')();

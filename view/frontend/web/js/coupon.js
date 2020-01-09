@@ -33,7 +33,13 @@ define([
     var cartData = customerData.get('cart')();
 
     return Component.extend({
-        isVisible: ko.observable(Object.keys(customerData.get('cart')()).length ? cartData.slidingcart.coupon_enable : 0),
+        isVisible: function(){
+            if(Object.keys(customerData.get('cart')()).length > 0){
+                var cartData = customerData.get('cart')();
+                return ko.observable(Boolean(cartData.slidingcart.coupon_enable));
+            }
+            return ko.observable(false);
+        },
         couponCode: ko.observable(),
         isApplied: ko.observable(),
         quoteId: ko.observable(),
