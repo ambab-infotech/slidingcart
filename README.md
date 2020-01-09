@@ -3,7 +3,7 @@ A simple extension for magento 2. This extension enables the system to replace t
 
 # Option to enable/disable Totals, coupon payment summary custom title and cart custom title. 
 
-#Installation
+#Installation [Versions supported: 2.3.x onwards]
 
 Install the extension through composer package manager.
 
