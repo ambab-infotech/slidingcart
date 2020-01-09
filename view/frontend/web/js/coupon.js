@@ -33,7 +33,7 @@ define([
     var cartData = customerData.get('cart')();
 
     return Component.extend({
-        isVisible: ko.observable(cartData.slidingcart.coupon_enable),
+        isVisible: ko.observable(Object.keys(customerData.get('cart')()).length ? cartData.slidingcart.coupon_enable : 0),
         couponCode: ko.observable(),
         isApplied: ko.observable(),
         quoteId: ko.observable(),
@@ -62,13 +62,13 @@ define([
         },
 
         initSlidingCartData: function (cartData) {
-            // if (cartData.hasOwnProperty('slidingcart')) {
+            if (cartData.hasOwnProperty('slidingcart')) {
                 this.couponCode(cartData.slidingcart.coupon_code);
                 this.isApplied(!!cartData.slidingcart.coupon_code);
                 this.isLoggedIn(cartData.slidingcart.isLoggedIn);
                 this.quoteId(cartData.slidingcart.quoteId);
                 this.apiUrl(cartData.slidingcart.apiUrl);
-            // }
+            }
         },
 
         handleMsg: function (type) {

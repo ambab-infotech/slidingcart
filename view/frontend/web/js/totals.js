@@ -27,17 +27,22 @@ define([
     'use strict';
 
     var cartData = customerData.get('cart')();
-
     return Component.extend({
-        isVisible: ko.observable(cartData.slidingcart.totals_enable),
+        isVisible: ko.observable(Object.keys(customerData.get('cart')()).length ? cartData.slidingcart.totals_enable : 0),
 
         getTotals: function () {
-            var cartData = customerData.get('cart')();
-            return cartData.slidingcart.totals;
+            if(Object.keys(customerData.get('cart')()).length > 0){
+                var cartData = customerData.get('cart')();
+                return cartData.slidingcart.totals;
+            }
+            return {};
         },
         getTotalsTitle: function () {
-            var cartData = customerData.get('cart')();
-            return cartData.slidingcart.totals_title;
+            if(Object.keys(customerData.get('cart')()).length > 0){
+                var cartData = customerData.get('cart')();
+                return cartData.slidingcart.totals_title;
+            }
+            return '';
         }
     });
 });
