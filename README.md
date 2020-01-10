@@ -1,4 +1,5 @@
-# Ambab SlidingCart
+**Ambab SlidingCart**
+
 This extension enables the system to replace the minicart into slidingcart which include extra functionality mentioned below.
 
 "FEATURES OF THE MAGENTO 2 SLIDING CART EXTENSION.
@@ -32,27 +33,33 @@ Designed to improve conversions.
 Modern responsive design.
 Easily customize a design from admin options.
 
-# Option to enable/disable Totals, coupon payment summary custom title and cart custom title. 
+- Option to enable/disable Totals, coupon payment summary custom title and cart custom title. 
 
-# Installation [Versions supported: 2.3.x onwards]
+**Installation [Versions supported: 2.3.x onwards]**
 
 Install the extension through composer package manager steps as follows below.
 
 composer require ambab/module-slidingcart
 
 bin/magento module:enable Ambab_SlidingCart
+
 bin/magento setup:upgrade
+
 bin/magento setup:di:compile
+
 bin/magento cache:flush
 
-# Steps to uninstall a composer installed module
+**Steps to uninstall a composer installed module**
 
 bin/magento module:disable Ambab_SlidingCart
+
 bin/magento module:uninstall Ambab_SlidingCart
+
 composer remove ambab/module-slidingcart
+
 bin/magento cache:flush
 
-# ----------------------------
+**Configurations**
 
 You can check if the module has been installed using bin/magento module:status
 
