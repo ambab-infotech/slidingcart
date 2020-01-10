@@ -21,7 +21,7 @@
 namespace Ambab\SlidingCart\Block\Cart;
 
 /**
- * Class Sidebar.
+ * Cart sidebar block.
  */
 class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
 {
@@ -43,7 +43,8 @@ class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
         parent::__construct($context, $customerSession, $checkoutSession, $imageHelper, $jsLayoutDataProvider, $data, $serializer);
 
         if ($enable) {
-            $this->jsLayout['components']['minicart_content']['config']['template'] = 'Ambab_SlidingCart/minicart/content';
+            $path = 'Ambab_SlidingCart/minicart/content';
+            $this->jsLayout['components']['minicart_content']['config']['template'] = $path;
         }
 
         if (!$enable) {

@@ -21,7 +21,7 @@
 namespace Ambab\SlidingCart\Plugin;
 
 /**
- * Class TotalsCollector.
+ * Interface \Magento\Framework\Event\ObserverInterface.
  */
 class TotalsCollector implements \Magento\Framework\Event\ObserverInterface
 {

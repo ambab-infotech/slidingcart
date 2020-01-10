@@ -80,9 +80,13 @@
     </div>
 </div>
 
+<?php
+    $blockObj = $block->getLayout()->createBlock(\Ambab\SlidingCart\Block\Index::class);
+?>
+
 <script type="text/javascript">
 require(['jquery'], function ($) { // Auto open sliding cart on Add To Cart
-    var dropdownShowHide = '<?php echo $this->helper('Ambab\SlidingCart\Helper\Data')->getGeneralConfig('addtocart_show_slidingcart'); ?>';
+    var dropdownShowHide = '<?= /* @noEscape */ $blockObj->getConfigValue('addtocart_show_slidingcart'); ?>';
 
     if(dropdownShowHide==1){
         $('.minicart-wrapper').on('contentLoading', function (event) {
