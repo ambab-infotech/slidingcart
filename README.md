@@ -39,7 +39,7 @@ Easily customize a design from admin options.
 
 Install the extension through composer package manager steps as follows below.
 
-composer require ambab/module-slidingcart
+- composer require ambab/module-slidingcart
 
 - php bin/magento module:enable Ambab_SlidingCart
 
