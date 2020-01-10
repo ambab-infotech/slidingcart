@@ -11,7 +11,7 @@ This reduces checkout steps and minimizes friction.
 
 The result? Improved conversion as the customer goes directly to checkout; no need to visit the shopping cart page!
 
-Cart page features are implemented on Sliding cart, 
+Cart page features are implemented on Sliding cart as follows below.
 
 - Apply & remove coupon.
 
