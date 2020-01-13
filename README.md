@@ -2,7 +2,7 @@
 
 This extension enables the system to replace the minicart into slidingcart which include extra functionality mentioned below.
 
-"FEATURES OF THE MAGENTO 2 SLIDING CART EXTENSION.
+**"FEATURES OF THE MAGENTO 2 SLIDING CART EXTENSION.**
 
 The Magento 2 Sliding Cart Extension takes your mini cart to the next level with responsive design and conversion oriented features. 
 
@@ -29,7 +29,7 @@ Easily customize a design from admin options.
 
 **Installation [Versions supported: 2.3.x onwards]**
 
-Install the extension through composer package manager steps as follows below.
+**Install the extension through composer package manager steps as follows below.**
 
 - composer require ambab/module-slidingcart
 
