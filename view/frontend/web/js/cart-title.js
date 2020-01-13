@@ -28,6 +28,9 @@ define([
     'use strict';
 
     return Component.extend({
+        /**
+        * @return {String}
+        */
         getCartTitle: function () {
             if(Object.keys(customerData.get('cart')()).length > 0){
                 var cartData = customerData.get('cart')();

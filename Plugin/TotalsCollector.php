@@ -25,13 +25,15 @@ namespace Ambab\SlidingCart\Plugin;
  */
 class TotalsCollector implements \Magento\Framework\Event\ObserverInterface
 {
+    /**
+     * @return \Magento\Framework\Event\Observer
+     */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         try {
             $observer->getEvent()->getQuote()->save();
         } catch (\Execption $e) {
-            // do nothing
-            error_log($e->getMessage());
+            $e->getMessage();
         }
     }
 }

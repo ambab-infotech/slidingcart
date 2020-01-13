@@ -29,6 +29,8 @@ class Data extends AbstractHelper
 
     /**
      * Get ConfigValue.
+     *
+     * @return {Boolean}
      */
     public function getConfigValue($field, $storeId = null)
     {
@@ -41,6 +43,8 @@ class Data extends AbstractHelper
 
     /**
      * Get GeneralConfig.
+     *
+     * @return {String}
      */
     public function getGeneralConfig($code, $storeId = null)
     {

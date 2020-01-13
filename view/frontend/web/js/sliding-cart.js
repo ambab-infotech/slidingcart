@@ -27,9 +27,15 @@ define([
     'use strict';
 
     return Component.extend({
+        /**
+        * @return {Boolean}
+        */
          isTotalsEnabled: function () {
-            var cartData = customerData.get('cart')();
-            return cartData.slidingcart.totals_enable;
+            if(Object.keys(customerData.get('cart')()).length > 0){
+                var cartData = customerData.get('cart')();
+                return ko.observable(Boolean(cartData.slidingcart.totals_enable));
+            }
+            return ko.observable(false);
         }
     });
 });

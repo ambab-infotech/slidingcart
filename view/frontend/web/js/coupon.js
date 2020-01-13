@@ -33,6 +33,9 @@ define([
     var cartData = customerData.get('cart')();
 
     return Component.extend({
+        /**
+        * @return {Boolean}
+        */
         isVisible: function(){
             if(Object.keys(customerData.get('cart')()).length > 0){
                 var cartData = customerData.get('cart')();

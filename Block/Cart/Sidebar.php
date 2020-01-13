@@ -70,6 +70,9 @@ class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
         }
     }
 
+    /**
+     * @return {Boolean}
+     */
     public function getConfigValue($code)
     {
         return $this->helperData->getGeneralConfig($code);
