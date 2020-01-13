@@ -15,17 +15,11 @@ The result? Improved conversion as the customer goes directly to checkout; no ne
 
 - Easy to modify the products in the cart.
 
+- Removes sliding cart from cart & checkout page.
+
 - 100% open source
 
 - Easy to install 
-
-
-
-
-Improve the shopping experience by reducing the number of steps necessary for checkout.
-Easily preview your cart summary.
-Designed to improve conversions.
-Modern responsive design.
 
 
 # Installation/Uninstallation [Versions supported: 2.3.x onwards]
