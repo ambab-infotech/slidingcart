@@ -35,7 +35,7 @@ define([
                 var cartData = customerData.get('cart')();
                 return cartData.slidingcart.grand_total;
             }
-            return {};
+            return '';
         }
     });
 });
