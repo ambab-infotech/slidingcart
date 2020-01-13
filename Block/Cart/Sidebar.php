@@ -26,6 +26,11 @@ namespace Ambab\SlidingCart\Block\Cart;
 class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
 {
     /**
+     * @var \Ambab\SlidingCart\Helper\Data
+     */
+    protected $helperData;
+
+    /**
      * @throws \RuntimeException
      */
     public function __construct(
@@ -33,6 +38,7 @@ class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
         \Magento\Customer\Model\Session $customerSession,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Catalog\Helper\Image $imageHelper,
+        \Ambab\SlidingCart\Helper\Data $helperData,
         \Magento\Customer\CustomerData\JsLayoutDataProviderPoolInterface $jsLayoutDataProvider,
         array $data = [],
         \Magento\Framework\Serialize\Serializer\Json $serializer = null,
@@ -40,7 +46,17 @@ class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
     ) {
         $enable = $scopeConfig->getValue('slidingcart/general/enable');
 
-        parent::__construct($context, $customerSession, $checkoutSession, $imageHelper, $jsLayoutDataProvider, $data, $serializer);
+        $this->helperData = $helperData;
+
+        parent::__construct(
+            $context,
+            $customerSession,
+            $checkoutSession,
+            $imageHelper,
+            $jsLayoutDataProvider,
+            $data,
+            $serializer
+        );
 
         if ($enable) {
             $path = 'Ambab_SlidingCart/minicart/content';
@@ -52,5 +68,10 @@ class Sidebar extends \Magento\Checkout\Block\Cart\Sidebar
             $this->jsLayout['components']['coupon']['config']['componentDisabled'] = true;
             $this->jsLayout['components']['cart-title']['config']['componentDisabled'] = true;
         }
+    }
+
+    public function getConfigValue($code)
+    {
+        return $this->helperData->getGeneralConfig($code);
     }
 }
