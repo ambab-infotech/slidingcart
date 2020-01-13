@@ -49,7 +49,7 @@ The result? Improved conversion as the customer goes directly to checkout; no ne
 
 **Steps to install module manually in app/code**
 
-- Add directory to app/code manually
+- Add directory to app/code/Ambab/SlidingCart manually
 
 - bin/magento module:enable Ambab_SlidingCart
 
@@ -61,7 +61,7 @@ The result? Improved conversion as the customer goes directly to checkout; no ne
 
 - bin/magento module:disable Ambab_SlidingCart
 
-- remove directory from app/code manually
+- remove directory from app/code/Ambab/SlidingCart manually
 
 - bin/magento setup:upgrade
 
