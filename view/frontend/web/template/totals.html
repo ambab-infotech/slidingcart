@@ -18,18 +18,18 @@
  * @copyright   Copyright (c) Ambab (https://www.Ambab.com/)
  * @license     https://www.Ambab.com/
  */
- -->
+ -->    
 <div data-bind="visible: isVisible()">
-	<table>
-		<tbody>
-			<!-- ko foreach: getTotals() -->
-				<tr class="totals">
-				    <th data-bind="i18n: title" class="mark" scope="row"></th>
-				    <td class="amount">
-				        <span class="price" data-bind="text:value"></span>
-				    </td>
-				</tr>
-			<!-- /ko -->
-		</tbody>
-	<table>
+    <table>
+        <tbody>
+            <!-- ko foreach: getTotals() -->
+                <tr class="totals">
+                    <th data-bind="i18n: title" class="mark" scope="row"></th>
+                    <td class="amount">
+                        <span class="price" data-bind="text:value"></span>
+                    </td>
+                </tr>
+            <!-- /ko -->
+        </tbody>
+    <table>
 </div>
