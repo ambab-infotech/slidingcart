@@ -79,14 +79,18 @@
                         &.close{
                             position: relative;
                             float: right;
-                            height: 30px;
                             position: absolute;
                             right: 38px;
                             top: 33%;
+                            border: 1px solid #ccc;
                             width: 25px;
+                            height: 25px;
                             &:before{
                                 color: @white-color;
-                                content: '\e608';
+                                top: 50%;
+                                left: 50%;
+                                position: absolute;
+                                transform: translate(-50%, -50%);
                             }
                         }
                     }
@@ -114,6 +118,9 @@
                     display: flex;
                     flex-direction: column;
                     height: calc(100% - 10px);
+                    @media only screen and (max-width: 767px){
+                           padding: 1rem 1.6rem 1rem;
+                    }
                     .fixed-totals{
                         padding-right: 0px;
                         padding-bottom: 10px;
@@ -133,7 +140,7 @@
                         padding-right: 0px;
                         .fieldset{
                             &.coupon{
-                                margin-top: 10px;
+                                margin-top: 0px;
                                 .control{
                                     margin-right: 20px;
                                 }
@@ -176,12 +183,14 @@
                                   position: relative;
                               }
                             .product-item{
+                                padding-bottom: 0px;
                                 &:not(:first-child){
                                     border-top: 1px solid #ccc;
                                 }
                                 .product{
                                     .product-item-photo{
                                         position: relative;
+                                        border: 1px solid #ccc;
                                         z-index: -1;
                                         .product-image-wrapper{
                                             .product-image-photo{
@@ -197,7 +206,7 @@
                                 }
                                 @media only screen and (max-width: 767px){
                                     .product-item-details{
-                                        padding-left: 76px;
+                                        padding-left: 84px;
                                     } 
                                 }
                             }
@@ -213,11 +222,11 @@
                             margin-top: 5px;
                             text-align: left;
                             border-top: solid 1px #ccc;
-                            padding: 10px 0 5px 0;
+                            padding: 10px 0 10px 0;
                             font-weight: 700;
                         }
                         table{
-                            border-top: 1px solid #e9e9e9;
+                            border-top: 1px solid #ccc;
                             tbody {
                                 > tr {
                                     &:first-child{
@@ -248,6 +257,8 @@
                                 width: 100%;
                                 text-align: right;
                                 padding-right: 5px;
+                                font-size: 16px;
+                                padding-left: 5px;
                             }
                             .action{
                                 &.primary{
@@ -305,7 +316,10 @@
                     overflow-y: auto;
                 }
             }
-           
+           &:before{
+                  border: 0px;
+                  z-index: -1;
+           }
         }
     }
    
