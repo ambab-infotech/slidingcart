@@ -2,7 +2,7 @@
 
 Sliding Cart extension for Magento 2 enhances mini cart to the next level with responsive design and conversion oriented features. Improves user experience by allowing cart summary review in one glace, without leaving the current page. No need to visit the shopping cart page! Most of the cart features are implemented in the Sliding Cart extension.
 
-Customers can use coupon code in Sliding Cart to test and find out the grand total after being discounted. Customers can apply, then cancel the coupon codes right from the sliding cart easily. This feature helps customers to view the summary without leaving the current page. Customers can also add / update qty, delete the product from the sliding cart itself.
+Customers can use coupon code in Sliding Cart to test and find out the grand total after being discounted. Customers can apply, then cancel the coupon codes right from the sliding cart easily. This feature helps customers to view the summary without leaving the current page. Customers can also add/ update qty, delete the product from the sliding cart itself.
 
 # Features
 
