@@ -1,25 +1,36 @@
 # Ambab SlidingCart
 
-This extension enables the system to replace the minicart into slidingcart. 
-It takes your mini cart to the next level with responsive design and conversion oriented features. 
-Optimize user experience by allowing cart summary review in one glace, without leaving the product page.
-The result? Improved conversion as the customer goes directly to checkout; no need to visit the shopping cart page!
+Sliding Cart extension for Magento 2 enhances mini cart to the next level with responsive design and conversion oriented features. Improves user experience by allowing cart summary review in one glace, without leaving the product page. No need to visit the shopping cart page! Most of the cart features are implemented in the Sliding Cart extension.
+
+Customers can use coupon code in Sliding Cart to test and find out the grand total after being discounted. Customers can apply, then cancel the coupon codes right from the sliding cart easily. This feature helps customers to view the summery without leaving the current page. Customers can also add / update qty, delete the product from the sliding cart itself.
 
 # Features
 
-- Sliding cart with more details
+ - Easily preview your cart summary.
 
-- Apply & remove coupon.
+ - Designed to improve conversions.
+
+ - Update Mini cart in layout & effect with Modern responsive design.
+
+ - Apply coupon code from the Mini cart.
+
+ - Enable/ Disable the extension.
+
+ - Allow/ Disallow auto-opening the quick cart.
+
+ - Allow/ Disallow showing coupon codes.
+
+ - Allow/ Disallow showing Order summary.
+
+ - Cart title can be edited from backend.
+
+ - Order summary title can be edited from backend.
+
+ - Easily customize a design from admin options.
+
+ - 100% open source.
  
-- View total summary.
-
-- Easy to modify the products in the cart.
-
-- Removes sliding cart from cart & checkout page.
-
-- 100% open source
-
-- Easy to install 
+ - Easy to install.
 
 
 # Installation/Uninstallation [Versions supported: 2.3.x onwards]
@@ -70,11 +81,16 @@ The result? Improved conversion as the customer goes directly to checkout; no ne
 
 # Configurations
 
-Go to Admin -> Stores -> Configuration -> Ambab -> SlidingCart to configure SlidingCart
+Go to Admin -> Stores -> Configuration -> Ambab -> Sliding Cart.
 
 Option to enable/disable totals, apply & remove coupon, payment summary, custom payment title and custom cart title. 
 
+# Contribute
+
+Feel free to fork and contribute to this module by creating a PR to master branch (https://github.com/ambab-infotech/slidingcart).
 
 # Support
 
-Please feel free to reach out at tech.support@ambab.com
+For issues please raise here https://github.com/ambab-infotech/slidingcart/issues
+
+In case of additional support feel free to reach out at tech.support@ambab.com
