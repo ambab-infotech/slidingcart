@@ -27,7 +27,10 @@
                         <item name="grand-total" xsi:type="array">
                             <item name="component" xsi:type="string">Ambab_SlidingCart/js/grand-total</item>
                         </item>
-                   </item>
+                        <item name="minicart-open" xsi:type="array">
+                            <item name="component" xsi:type="string">Ambab_SlidingCart/js/minicartopen</item>
+                        </item>                        
+                    </item>
                 </argument>
             </arguments>
 	   	</referenceBlock>
