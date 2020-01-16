@@ -33,7 +33,9 @@ define([
 		    });
 
 		    $(document).on('customer-data-invalidate', function(event, sections){
-		    	if (_.isEmpty(sections) || _.contains(sections, 'cart')) {
+		    	let checkMiniCart = $('.action.showcart').hasClass('active');
+
+		    	if (_.isEmpty(sections) || _.contains(sections, 'cart') && !checkMiniCart) {
 		            let localStorage = $.initNamespaceStorage('mage-cache-storage').localStorage;
 				    localStorage.set('show_cart', true);
 		        }
