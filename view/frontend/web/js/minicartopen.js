@@ -19,6 +19,10 @@ define([
 
 			let localStorage = $.initNamespaceStorage('mage-cache-storage').localStorage;
 
+	      	if($('.message-notice').is(':visible')){ // for configurable products
+	      		localStorage.set('show_cart', false);
+	      	}
+
 			if(localStorage.get('show_cart') == true){
 				$('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
 
