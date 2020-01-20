@@ -23,7 +23,7 @@ namespace Ambab\SlidingCart\Observer;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 
-class CustomShowCart implements ObserverInterface
+class SetcookieAfterAddToCart implements ObserverInterface
 {
     const COOKIE_NAME = 'show_cart';
     const COOKIE_DURATION = 3600; // 3600 = 1hr [lifetime in seconds]
@@ -37,8 +37,8 @@ class CustomShowCart implements ObserverInterface
     protected $cookieMetadataFactory;
 
     public function __construct(
-     \Magento\Framework\Stdlib\CookieManagerInterface $cookieManager,
-     \Magento\Framework\Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory
+        \Magento\Framework\Stdlib\CookieManagerInterface $cookieManager,
+        \Magento\Framework\Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory
     ) {
         $this->cookieManager = $cookieManager;
         $this->cookieMetadataFactory = $cookieMetadataFactory;

@@ -29,16 +29,18 @@ define([
 				let URL = url.build('show_cart/index');
 
 				if(check_cookie == 1){
-					$('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
-					
-					$.ajax({ // unset cookie [show_cart]
-		                url : URL,
-		                type : 'POST',
-		                dataType : 'text',
-		                success : function(data) {              
-		                    console.log(data);
-		                }
-		            });
+					setTimeout(function(){ // avoid blank slidingcart
+						$('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
+						
+						$.ajax({ // unset cookie [show_cart]
+			                url : URL,
+			                type : 'POST',
+			                dataType : 'text',
+			                success : function(data) {              
+			                    //console.log(data);
+			                }
+			            });
+					},1500);
 				}
 
 			    $('.minicart-wrapper').on('contentLoading', function (event) {

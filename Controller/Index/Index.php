@@ -22,13 +22,11 @@ namespace Ambab\SlidingCart\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
-    
     public function execute()
     {
-		if (isset($_COOKIE['show_cart'])) {
-			unset($_COOKIE['show_cart']);
-			setcookie('show_cart', '', time() - 3600, '/'); // empty value and old timestamp
-			echo "Cookie Deleted!!";
-		}
+        if (isset($_COOKIE['show_cart'])) {
+            unset($_COOKIE['show_cart']);
+            setcookie('show_cart', '', time() - 3600, '/'); // empty value and old timestamp
+        }
     }
 }
