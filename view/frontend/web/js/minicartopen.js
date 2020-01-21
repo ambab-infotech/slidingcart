@@ -27,6 +27,7 @@ define([
 				if(check_cookie == 1){
 					setTimeout(function(){
 						$('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
+						$('body').addClass('sliding-cart-overflow');
 						$.cookieStorage.set('slidingcart_show_cart', 0);
 					},2000);
 				}
@@ -34,10 +35,18 @@ define([
 			    $('.minicart-wrapper').on('contentLoading', function (event) {
 			        $('[data-block="minicart"]').on('contentUpdated', function () {
 			            $('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
+			            $('body').addClass('sliding-cart-overflow');
 			            $.cookieStorage.set('slidingcart_show_cart', 0);
 			        });
 			    });
 			}
+
+            var minicart = $('[data-block="minicart"]');
+
+            minicart.on('click', '[data-action="close"]', function (event) {
+                event.stopPropagation();
+                $('body').removeClass('sliding-cart-overflow');
+            });
 	    }
 	});
 });
