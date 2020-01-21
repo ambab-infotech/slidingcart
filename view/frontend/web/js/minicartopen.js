@@ -22,39 +22,19 @@ define([
 			let addtocart_show_slidingcart = $("#addtocart_show_slidingcart").val();
 
 	      	if(addtocart_show_slidingcart==1){ // Auto open sliding cart on Add To Cart
-		      	let check_cookie = $.mage.cookies.get('show_cart');
-
-				url.setBaseUrl(BASE_URL);
-				
-				let URL = url.build('show_cart/index');
+		      	let check_cookie = $.mage.cookies.get('slidingcart_show_cart');
 
 				if(check_cookie == 1){
-					setTimeout(function(){ // avoid blank slidingcart
+					setTimeout(function(){
 						$('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
-						
-						$.ajax({ // unset cookie [show_cart]
-			                url : URL,
-			                type : 'POST',
-			                dataType : 'text',
-			                success : function(data) {              
-			                    //console.log(data);
-			                }
-			            });
-					},1500);
+						$.cookieStorage.set('slidingcart_show_cart', 0);
+					},2000);
 				}
 
 			    $('.minicart-wrapper').on('contentLoading', function (event) {
 			        $('[data-block="minicart"]').on('contentUpdated', function () {
 			            $('[data-block="minicart"]').find('[data-role="dropdownDialog"]').dropdownDialog("open");
-						
-						$.ajax({ // unset cookie [show_cart]
-			                url : URL,
-			                type : 'POST',
-			                dataType : 'text',
-			                success : function(data) {              
-			                    //console.log(data);
-			                }
-			            });
+			            $.cookieStorage.set('slidingcart_show_cart', 0);
 			        });
 			    });
 			}

@@ -119,7 +119,7 @@ class Cart
             ];
         }
         $result['slidingcart']['totals'] = $_totals;
-        $result['slidingcart']['coupon_code'] = ($coupon_code != '' ? $coupon_code : null);
+        $result['slidingcart']['coupon_code'] = ($coupon_code != '' ? $coupon_code : '');
         $result['slidingcart']['coupon_enable'] = boolval($this->helperData->getGeneralConfig('coupon'));
         $result['slidingcart']['totals_enable'] = boolval($this->helperData->getGeneralConfig('totals'));
         $result['slidingcart']['addtocart_show_slidingcart'] = $addtocartShowSc;

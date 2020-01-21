@@ -191,7 +191,6 @@
                                     .product-item-photo{
                                         position: relative;
                                         border: 1px solid #ccc;
-                                        z-index: -1;
                                         .product-image-wrapper{
                                             .product-image-photo{
                                                 border: none;
@@ -310,11 +309,6 @@
                         margin-top: 8px;
                     }
                 }
-            
-                @media only screen and (max-width: 1024px){
-                    max-height: 100vh;
-                    overflow-y: auto;
-                }
             }
            &:before{
                   border: 0px;
@@ -329,4 +323,11 @@
         }
     }
 }
+}
+
+@media only screen and (max-width: 767px){
+    .modal-inner-wrap{
+        width: 80% !important;
+        max-width: 100% !important;
+    }
 }

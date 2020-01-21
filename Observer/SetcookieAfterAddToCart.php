@@ -25,7 +25,7 @@ use Magento\Framework\Event\ObserverInterface;
 
 class SetcookieAfterAddToCart implements ObserverInterface
 {
-    const COOKIE_NAME = 'show_cart';
+    const COOKIE_NAME = 'slidingcart_show_cart';
     const COOKIE_DURATION = 3600; // 3600 = 1hr [lifetime in seconds]
     /**
      * @var \Magento\Framework\Stdlib\CookieManagerInterface
