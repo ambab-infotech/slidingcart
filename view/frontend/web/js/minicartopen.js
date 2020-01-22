@@ -39,7 +39,7 @@ define([
 			    });
 			}
 
-			/* add/remove class on body start YYR! */
+			/* add/remove class on body start */
             var minicart = $('[data-block="minicart"]');
 
             minicart.on('click', '[data-action="close"]', function (event) {
@@ -50,7 +50,7 @@ define([
 			minicart.on('dropdowndialogopen', function () {
 				$('body, html').addClass('sliding-cart-overflow');
 			});
-			/* add/remove class on body ends YYR! */
+			/* add/remove class on body ends */
 	    }
 	});
 });
