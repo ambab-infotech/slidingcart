@@ -81,7 +81,10 @@ class Cart
         \Magento\Framework\Pricing\Helper\Data $priceHelper,
         \Magento\Customer\Model\Session $customerSession,
         \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory,
-        \Magento\Framework\UrlInterface $urlInterface
+        \Magento\Framework\UrlInterface $urlInterface,
+	    \Magento\Quote\Api\Data\AddressInterface $address,
+        \Magento\Checkout\Api\ShippingInformationManagementInterface $shippingInformationManagement,
+	    \Magento\Checkout\Api\Data\ShippingInformationInterface $shippingInformation
     ) {
         $this->checkoutSession = $checkoutSession;
         $this->checkoutHelper = $checkoutHelper;
@@ -92,6 +95,9 @@ class Cart
         $this->quoteIdMaskFactory = $quoteIdMaskFactory;
         $this->customerSession = $customerSession;
         $this->urlInterface = $urlInterface;
+	    $this->address = $address;
+        $this->shippingInformationManagement = $shippingInformationManagement;
+	    $this->shippingInformation = $shippingInformation;
     }
 
     /**
@@ -104,8 +110,16 @@ class Cart
         array $result
     ) {
         $quoteId = $this->checkoutCart->getQuote()->getId();
+
+	    $this->address->setCountryId('DE');
+        $shipping = $this->shippingInformation->setShippingAddress($this->address);
+        $shipping->setShippingCarrierCode('flatrate');
+        $shipping->setShippingMethodCode('flatrate');
+        $this->shippingInformationManagement->saveAddressInformation($quoteId, $shipping);
+
         $totals = $this->cart->get($quoteId)->getTotalSegments();
         $quoteIdMask = $this->quoteIdMaskFactory->create()->load($quoteId, 'quote_id');
+	
         $coupon_code = $this->getQuote()->getCouponCode();
         $isLoggedIn = $this->customerSession->isLoggedIn();
         $addtocartShowSc = boolval($this->helperData->getGeneralConfig('addtocart_show_slidingcart'));
