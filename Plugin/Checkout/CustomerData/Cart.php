@@ -110,12 +110,14 @@ class Cart
         array $result
     ) {
         $quoteId = $this->checkoutCart->getQuote()->getId();
-
-	    $this->address->setCountryId('DE');
-        $shipping = $this->shippingInformation->setShippingAddress($this->address);
-        $shipping->setShippingCarrierCode('flatrate');
-        $shipping->setShippingMethodCode('flatrate');
-        $this->shippingInformationManagement->saveAddressInformation($quoteId, $shipping);
+	
+	if(count($this->checkoutCart->getQuote()->getItems()) > 0){
+		$this->address->setCountryId('DE');
+		$shipping = $this->shippingInformation->setShippingAddress($this->address);
+		$shipping->setShippingCarrierCode('flatrate');
+		$shipping->setShippingMethodCode('flatrate');
+		$this->shippingInformationManagement->saveAddressInformation($quoteId, $shipping);
+	}
 
         $totals = $this->cart->get($quoteId)->getTotalSegments();
         $quoteIdMask = $this->quoteIdMaskFactory->create()->load($quoteId, 'quote_id');
